@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> US Geography Quiz</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- JQuery -->
+        <link rel = "stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <h1> US Geography Quiz </h1>
+        <h2> What is the capitol of California? </h2>
+        <input type = "text" id="q1">
+        <div id="q1_feedback">
+        
+        </div>
+        <h2> What is the longest US river? </h2>
+        <select id = "q2">
+            <option>Select One</option> //creates options
+            <options>Mississippi</options>
+            <options>Missouri</options>
+            <options>Colorado</options>
+            <options>Delaware</options>
+        </select>
+        
+        <h2> What is the smallest US state? </h2> <!-- Question Title -->
+        <input type = "radio" name =  "q3" id="main"><label for = "maine"> Maine </label> <!-- create our options with buttons -->
+        <input type = "radio" name =  "q3" id = "ri"><label for = "ri"> Rhode Island </label>
+        <input type = "radio" name = "q3" id = "maryland"><label for = "maryland">Maryland</label>
+        <input type = "radio" name =  "q3"id = "delaware"><label for = "delaware">Delaware</label>
+        
+        <br></br>
+        <h2 id = "total"></h2> <script> <!-- place holder -->
+        <button id="submitButton"> Submit </button>
+    </body>
+    
+    <script> 
+        let q1_value = 25;  <!-- adding value to questions -->
+        let q2_value = 25;
+        let q3_value = 25;
+        
+        let total_points = 0;
+      <!-- creating output display when button is clicked -->
+        let q1_answer = "sacramento"; 
+     
+    
+        $("#submitButton").on( "click", function() { 
+            //alert($("#q1").val());    
+            let q1_response = $("#q1").val().toLowerCase();
+            if(q1_response == q1_answer) {
+                $("#q1_feedback").html("Correct!"); <!-- hashtag because we are using an id -->
+                total_points += q1_value;
+                //alert(total_points);
+            } else{
+                $("#q1_feedback").html("Incorrect!");
+            }
+            $("#total").html("The total Score is: " + total_points);
+            //alert(q1_response == q1_answer);
+        });
+        
+
+        
+    </script>
+</html> 
