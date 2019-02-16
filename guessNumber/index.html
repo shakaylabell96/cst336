@@ -11,6 +11,21 @@
         
         <!--Custom Styles-->
         <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        
+        <style>
+            
+            .jumbotron {
+                background-color:cyan;
+            }
+            
+        </style>
+        
+        <script>
+            
+            var randomNumber = Math.floor(Math.random()* 99) +1;
+            console.log(randomNumber);
+        </script>
+        
     </head>
     <body>
 
@@ -20,8 +35,9 @@
         
         <div id="directions" class="resultParas">
             Guess a number between 1 and 99 in seven attempts!
-            
             <br><br>
+            <!-- Random Number: <span id="numberToGuess"</span> -->
+                
             <label for="guessField">Enter a guess: </label>
             <input type="text" id="guessField" class="guessField">
             <input type="submit" value="Submit guess" class="guessSubmit">
@@ -43,11 +59,16 @@
             var guessField = document.querySelector('.guessField');
             
             var guessCount = 1;
-            var restButton = document.querySelector('#reset');
-            resetButton.style.display = 'none';
+            var resetButton;
             guessField.focus();
             
+            var restButton = document.querySelector('#reset');
+            resetButton.style.display = "none";            
+            //document.getElementById("numberToGuess").innerHTML = randomNumber;
             
+            
+            
+           
             function checkGuess() {
                 var userGuess = Number(guessField.value);
                 if(guessCount === 1) {
@@ -76,6 +97,7 @@
                 guessField.value = '';
                 guessField.focus();
             }
+            
             guessSubmit.addEventListener('click', checkGuess);
             function setGameOver() {
                 guessField.disabled = true;
@@ -90,6 +112,7 @@
                 for (var i = 0; i < resetParas.length; i++) {
                     resetParas[i].textContent = '';
                 }
+                
                 resetButton.style.display = 'none';
              
                 guessField.disabled = false;
@@ -104,4 +127,5 @@
         </script>
 
 </body>
+
 </html>
