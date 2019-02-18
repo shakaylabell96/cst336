@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slot Machine</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body> <!-- align here -->
+        
+        <h1 style = "text-align: center"> Slot Machine </h1>
+        
+        <div style = "display: flex">
+            <div id="image1"></div>
+            <div id="image2"></div>
+            <div id="image3"></div>
+        </div>
+        <button id="playButton"> Play </button>
+        <!--alert("hello");-->
+    <p id="output"> Total Winnings: </p>
+    <script>
+        /* global $ */
+        
+        
+        $("#playButton").on( "click", function(){
+            let imageArray = ["cherry", "grapes","seven"];
+            let randomIndex1 = Math.floor(Math.random() * 3);
+            var randomImage = imageArray[randomIndex1];
+        
+            $("#image1").html("<img src='img/"+randomImage+".png' />");
+            let randomIndex2 = Math.floor(Math.random() * 3);
+            randomImage = imageArray[randomIndex2];
+            
+            $("#image2").html("<img src='img/"+randomImage+".png' />");
+            let randomIndex3 = Math.floor(Math.random() * 3);
+            randomImage = imageArray[randomIndex3];
+            
+            $("#image3").html("<img src='img/"+randomImage+".png' />");
+            
+            //alert("playButton")
+            
+            
+            
+            if(randomIndex1 == randomIndex2 && randomIndex2 == randomIndex3){
+                    //console.log("works");
+                    if(randomIndex1 == 0){
+        
+                        $("#output").html("100");
+                    }
+            }
+            
+              if(randomIndex1 == randomIndex2 && randomIndex2 == randomIndex3){
+                    //console.log("works");
+                    if(randomIndex2 == 1){
+        
+                        $("#output").html("300");
+                    }
+            }
+            
+              if(randomIndex1 == randomIndex2 && randomIndex2 == randomIndex3){
+                    //console.log("works");
+                    if(randomIndex3 == 2){
+        
+                        $("#output").html("500");
+                    }
+            }
+            
+            
+        });
+    </script>    
+    
+    
+    
+   
+    
+    </body>
+</html>
