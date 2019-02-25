@@ -1,0 +1,168 @@
+<html>
+<head>
+    <title>Shopping Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1> Spring Break Shopping  </h1>
+
+    <table>
+    <tr>
+        <th>Product</th>
+        <th>Unit <br> Price</th>
+        <th> Quantity </th>
+        <th>Total</th>
+    </tr>
+    
+    
+    <tr>
+        <td>Microfiber Beach Towel</td>
+        <td>$30</td>
+        <td><input type="text" id="quant" size="5"></td>
+        <td></td>
+    </tr>
+    <script>
+        $("#quant").change(function () {
+            console.log( parseFloat( $("#quant").val()) );
+            
+            let quant_response = $("#quant").val();
+            let total = 0;
+
+            
+            if(quant_response > 0){
+                total = quant_response * 30;
+                alert(total);
+            }
+            
+        });
+    </script>
+    
+
+   <tr>
+        <td>Sunscreen 100SPF, 120ml</td>
+        <td>$10</td>
+        <td><input type="text" id="sunscreen" size="5"></td>
+        <td></td>
+    </tr>    
+    <script>
+        $("#sunscreen").change(function () {
+            console.log( parseFloat( $("#sunscreen").val()) );
+            
+            let sunscreen_response = $("#sunscreen").val();
+            let sunscreenTotal = 0;
+
+            
+            if(sunscreen_response > 0){
+                sunscreenTotal = sunscreen_response * 10;
+                alert(sunscreenTotal);
+            }
+            
+        });
+    </script>
+    
+    
+    
+    <tr>
+        <td>Ipanema Flip-flop Sandals </td>
+        <td>$20</td>
+        <td><input type="text" id="sandals" size="5"></td>
+        <td></td>
+    </tr>
+    <script>
+    $("#sandals").change(function () {
+            console.log( parseFloat( $("#sandals").val()) );
+            
+            let sandals_response = $("#sandals").val();
+            let sandalsTotal = 0;
+
+            
+            if(sandals_response > 0){
+                sandalsTotal = sandals_response * 20;
+                alert(sandalsTotal);
+            }
+            
+    });
+    </script>
+    
+    
+   <tr>
+        <td>Shipping</td>
+        <td></td>
+        <td></td>
+        <td><input type="text" id="shipping" size="5"></td>
+    </tr>
+    <script>
+    $("shipping").change(function () {
+            console.log( parseFloat( $("#shipping").val()) );
+            
+            let shipping_response = $("#shipping").val();
+            let shippingTotal = 0;
+
+            
+            if(shipping_response > 0){
+                shippingTotal = shipping_response * 90;
+                alert(shippingTotal);
+            }
+            
+    });
+    </script>
+        
+    <tr>
+        <td>Subtotal</td>
+        <td></td>
+        <td></td>
+        <td><input type="text" id="subtotal" size=5></td>
+    </tr>
+    <script>
+    $("#subtotal").change(function () {
+            console.log( parseFloat( $("#subtotal").val()) );
+            
+            let subtotal_response = $("#subtotal").val();
+            let subtotalTotal = 0;
+
+            
+            if(subtotal_response > 0){
+                subtotalTotal = subtotal_response * 70;
+                alert(subtotalTotal);
+            }
+            
+    });
+   </script>
+   
+   
+   
+    <tr>
+        <td>Tax (10%)</td>
+        <td></td>
+        <td></td>
+        <td id="tax"></td>
+    </tr>
+    
+    <tr>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+        <td id="total"></td>
+    </tr>
+       
+    </table>
+    
+    <h3>Shipping & Handling</h3>
+    <select id="shipping">
+        <option value="">Select one</option>
+        <option value="">Next-day Delivery: $15.00</options>
+        <option value="">Three-day Delivery: $10.00</options>
+        <option value="">Regular(5-8 days): $5.00</options>
+    </select>
+    <div id="shippingFeedback"></div> 
+    <br><br>
+        
+    <span>I accept the terms of this purchase.</span>
+    <br> 
+    
+    <button id="submitButton">"CONFIRM PURCHASE"</button>
+
+    
+</body>
+</html>
