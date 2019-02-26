@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> US Geography Quiz</title
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- JQuery -->
-        <link rel = "stylesheet" href="css/style.css">
+        <title> US Geography Quiz </title>
+         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+       
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div class="jumbotron">
         <h1> US Geography Quiz </h1>
+        </div>
         
         <h2><span id="markImg1"></span> What is the capitol of California? </h2>
         
@@ -21,10 +24,10 @@
         <h2> What is the longest US river? </h2>
         <select id = "q2">
             <option value="">Select One</option> <!-- reates options -->
-            <options>Mississippi</options>
-            <options>Missouri</options>
-            <options>Colorado</options>
-            <options>Delaware</options>
+            <option>Mississippi</option>
+            <option>Missouri</option>
+            <option>Colorado</option>
+            <option>Delaware</option>
         </select>
         <div id="q2_feedback">
         </div>
@@ -51,8 +54,11 @@
         <img src = "img/seal3.png" alt = "Seal 3" class = "active" id = "Seal3">
         <div id = "q5_feedback"></div>
         
+        
+        <h2>Total Score: </h2>
+    
         <h2 id = "total"></h2>
-        <button id="submitButton"> Submit </button>
+        <button id="submit"> Submit </button>
         <h2 id = "validSubmission"></h2>
         <h2 id = "totalTimes"></h2>
         <h2 id = "prevScores"></h2>
@@ -74,7 +80,7 @@
         if(scoresArray == null) {
             scoresArray = [];
         } else {
-            scoresArray = scoresArray.split(",") //creates array from string
+            scoresArray = scoresArray.split(","); //creates array from string
         }
         
         $("#.active").on( "click", function() {
@@ -92,17 +98,17 @@
             return isValid;
         }
         
-        $("#submitButton").on( "click", function() { 
-            
+        $("#submit").on( "click", function() { 
+            alert("here");
             $("#validSubmission").html("");
             
             if(!isFormValid()) { //isFormValid == false
                 return;
             } 
             
-             let total_points = 0;
+            
+            let total_points = 0;
              
-            //alert($("#q1").val());    
             let q1_response = $("#q1").val().toLowerCase();
             let q2_response = $("q2").val();
             let q3_response = $("input[name=q3]:checked").val();
@@ -144,8 +150,8 @@
             if($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jackson").is(":checked") && !("#Franklin").is(":checked")){
                $("#q4_feedback").html("Correct!");
                total_oints+=q4_value;
-            } else{
-                $("#q4_feedback").html("Incorrect!");
+            } else {
+                    $("#q4_feedback").html("Incorrect!");
             }
             
             //question5
@@ -158,10 +164,9 @@
             
             //total
             $("#total").html("The total Score is: " + total_points);
-            //alert(q1_response == q1_answer);
-            totalTimes++
+            totalTimes++;
             localStorage.setItem("totalTimesTaken", totalTimes);
-            $("#totalTimes").html("quiz taken: " + totalTimes + " times(s)");
+            $("#totalTimes").html("Quiz taken: " + totalTimes + " times(s)");
             scoresArray.push(total_points);
             $("#prevScores").html("Score History: ");
             scoresArray.forEach(function(score){
@@ -169,8 +174,30 @@
             });
             
             localStorage.setItem("scoreHistory",scoresArray);
+            
+            //ADDTOTAL
+            console.log( parseFloat( $("#total").val()) );
+            
+            let total_response = $("#total").val();
+            let total = 0;
+
+            
+            if(total_response > 0){
+                
+                overallTotal = total_response;
+                alert(overallTotal);
+                
+            }
         });
         
+
+        
+       
+            
+            
+            
+        
+    
 
         
     </script>
