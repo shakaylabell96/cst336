@@ -2,6 +2,8 @@
 
 //echo "topS3cr3t!";
 
+$pwdLength = $_GET['length'];
+
 //$lettersArray = array("a", "b", "c"...);
 
 $lettersArray = range("a","z");
@@ -10,9 +12,9 @@ $lettersArray = range("a","z");
 
 $password = "";
 
-for ($i = 0; $i < 8; $i++) {
+for ($i = 0; $i < $pwdLength; $i++) {
     $randomIndex = rand(0,25); //generates random number from 0 to 25, inclusive
-    $password = $password . $lettersArray[$randomIndex ]; //Use a DOT to concatanate strings
+    $password = $password . $lettersArray[$randomIndex ]; //Use a DOT to concatenate strings
     //$password .=  $lettersArray[$randomIndex ]; /
 }
 
@@ -28,4 +30,3 @@ $data["suggestedPwd"] = $password;
 echo json_encode($data);
 
 ?>
-
